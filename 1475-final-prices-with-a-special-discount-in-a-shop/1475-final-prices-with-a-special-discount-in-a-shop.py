@@ -1,11 +1,11 @@
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
+        ans = prices
         st = []
         for i , price in enumerate(prices):
-            while st and prices[st[-1]] >= price:
+            while st and ans[st[-1]] >= price:
                 j = st.pop()
-                prices[j] -= price
-
+                ans[j] -= price
             st.append(i)
-        return prices
+        return ans
            
